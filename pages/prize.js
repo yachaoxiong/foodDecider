@@ -192,7 +192,7 @@ export default function App() {
               animationData={firework} 
               style={{height:200}}
           /> 
-        <h1 className={styles.resultTitle}>Wow 就决定是你了 <span>{result}</span> </h1>
+        <h1 className={styles.resultTitle}>Wow! 就决定是你了 <span>{result}</span> </h1>
         <div className={styles.logo}>
           <img 
             src={resultImg}
