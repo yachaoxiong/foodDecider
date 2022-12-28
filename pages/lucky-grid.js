@@ -7,14 +7,14 @@ import firework from '../public/firework.json'
 import { IoCloseSharp } from 'react-icons/io5'
 import useSound from 'use-sound';
 
-export default function App() {
+export default function LuckyGridScreen() {
   const [play, { stop }] = useSound('./bg.mp3')
   const [playS, { stops}] = useSound('./success.wav')
   const [isOpen, setIsOpen] = useState(false)
   const [result, setResult] = useState(null)
   const [resultImg, setResultImg] = useState(null)
   const [blocks] = useState([
-    {borderRadius:"30px", padding: '10px', background: '#0a2647d1' },
+    {borderRadius:"30px", padding: '10px', background: '#0a2647d1'}
   ])
 
   const ChineseDishes = {
@@ -163,7 +163,7 @@ export default function App() {
       blocks={blocks}
       prizes={prizes}
       buttons={buttons}
-      defaultStyle={{ borderRadius: '120px'}}
+      defaultStyle={{ borderRadius: '1220px', shadow: '0 2px 10px #F8F4EA'}}
       activeStyle={{ background: '#F8F4EA' ,shadow: '0 2px 10px #F8F4EA'}}
       onStart={() => { // 点击抽奖按钮会触发star回调
         myLucky.current.play()
