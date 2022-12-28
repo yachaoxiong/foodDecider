@@ -1,0 +1,98 @@
+.appModalContainer {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1101;
+  background: rgba(35, 54, 66, 0.75);
+  visibility: hidden;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s;
+}
+.appModalContainer.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.appModal {
+  width: 800px;
+  border-radius: 10px;
+  box-shadow: 0 10px 15px 2px rgba(0,0,0,0.1);
+  transform: scale(0.9);
+  transition: 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* overflow: hidden; */
+  background: var(--modalGradient);
+  cursor: default;
+}
+.appModalContainer.show .appModal {
+  transform: scale(1);
+}
+.appModal header {
+  width: 100%;
+  padding: 15px 30px;
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.appModal header h4 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+}
+.appModal header .iconContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 5px;
+  transition: all 0.2s;
+  cursor: pointer;
+  border-radius: 50%;
+
+  border: 1px solid var(--primary);
+  /* background: #eee; */
+}
+.appModal header .iconContainer i {
+  color: var(--primary);
+  font-size: 25px;
+}
+.appModal header .iconContainer:hover {
+  background: var(--primary);
+}
+.appModal header .iconContainer:hover i {
+  color: #fff;
+}
+.appModal section {
+  width: 100%;
+  max-height: 600px;
+  padding: 0px 50px 50px 50px;
+  overflow-y: overlay;
+}
+.appModal section .appInput h6 {
+  font-size: 13px;
+  color: var(--graytxt);
+  margin-bottom: 5px;
+}
+.appModal footer {
+  padding: 15px 30px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .appModal section {
+    padding: 0px 20px 20px 20px;
+  }
+}
