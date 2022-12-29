@@ -71,5 +71,9 @@
  }
  .resultTitle{
   font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
  }
 }

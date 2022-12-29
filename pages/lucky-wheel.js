@@ -211,8 +211,8 @@ const buttons= [
       ref={myLucky}
       cols={5}
       rows={5}
-      width={orientation.width > 768 ? '600px' : orientation.width <= 768 && orientation.width > 481 ? '500px' : '400px'}
-      height={orientation.width > 768 ? '600px' : orientation.width <= 768 && orientation.width > 481 ? '500px' : '400px'}
+      width={orientation.width > 768 ? '600px' : orientation.width <= 768 && orientation.width > 481 ? '500px' : '360px'}
+      height={orientation.width > 768 ? '600px' : orientation.width <= 768 && orientation.width > 481 ? '500px' : '360px'}
       blocks={blocks}
       prizes={prizes}
       buttons={buttons}
