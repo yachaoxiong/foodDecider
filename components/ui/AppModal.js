@@ -26,7 +26,7 @@ export default function AppModal(props) {
             className={styles.iconContainer} 
             onClick={() => setShowModal(false)}
           >
-            <i className="fal fa-times"></i>
+            {/* <i className="fal fa-times"></i> */}
           </div>
         </header>
         <section>
