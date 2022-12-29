@@ -10,7 +10,7 @@ export default function Home() {
      //redirect to /prize in 2 seconds
     setTimeout(() => {
 
-      router.push('/lucky-grid')
+      router.push('/lucky-wheel')
     }, 2000)
 
   }, [])

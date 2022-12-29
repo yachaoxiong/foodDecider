@@ -29,7 +29,7 @@
   color: white;
   padding: 5px;
   border-radius: 5px;
-  font-size: 18px;
+  font-size: 26px;
   box-shadow: 0 2px 19px rgba(0,0,0,0.5);
 }
 .closeIcon{
@@ -49,4 +49,24 @@
   top: -107px;
   left: 39%;
   border-radius: 5px;
+}
+
+@media screen and (max-width: 768px) and (min-width: 481px){
+ .logo{
+  top: -80px;
+  left:35%;
+ }
+  .resultTitle{
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 480px){
+ .logo{
+  top:  -45px;
+  left: 36%;
+ }
+ .resultTitle{
+  font-size: 15px;
+ }
 }

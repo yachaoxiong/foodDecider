@@ -1,20 +1,27 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { LuckyGrid } from '@lucky-canvas/react'
+import { LuckyGrid,LuckyWheel } from '@lucky-canvas/react'
 import styles from './styles.module.css'
 import AppModal from '../components/ui/AppModal'
 import Lottie from "lottie-react";
 import firework from '../public/firework.json'
 import { IoCloseSharp } from 'react-icons/io5'
 import useSound from 'use-sound';
+import { useWindowDimensions } from '../hooks/useWindowDimensions'
 
 export default function LuckyGridScreen() {
+  const orientation = useWindowDimensions()
   const [play, { stop }] = useSound('./bg.mp3')
-  const [playS, { stops}] = useSound('./success.wav')
+  const [playS, { stops }] = useSound('./success.wav')
   const [isOpen, setIsOpen] = useState(false)
   const [result, setResult] = useState(null)
   const [resultImg, setResultImg] = useState(null)
   const [blocks] = useState([
-    {borderRadius:"30px", padding: '10px', background: '#0a2647d1'}
+    {
+      borderRadius: "30px", padding: '10px', background: '#0A2647', color: '#fff',
+    },
+    {
+      borderRadius: "30px", padding: '10px', background: '#0a2647d1', color: '#fff',
+    }
   ])
 
   const ChineseDishes = {
@@ -124,28 +131,72 @@ export default function LuckyGridScreen() {
       },
     ]
   }
+  const xiaolongkan = {
+    src: "./xiaolongkan.jpg",
+    width: '50%',
+    top: '20%',
+    fonts: [
+      {
+        text: '小龙坎火锅',
+        fontSize: '30px',
+        color: '#fff',
+        textAlign: 'center',
+      },
+    ]
+  }
+  const bbqChicken = {
+    src: "./bbqChicken.png",
+    width: '50%',
+    width: '50%',
+    top: '20%',
+    fonts: [
+      {
+        text: 'BBQ Chicken 韩式炸鸡',
+        fontSize: '30px',
+        color: '#fff',
+        textAlign: 'center',
+      },
+    ]
+  }
   const prizes =[
-    { x: 0, y: 0, imgs: [ChineseDishes] },
-    { x: 1, y: 0, imgs: [hotpot] },
-    { x: 2, y: 0, imgs: [jbbq] },
-    { x: 2, y: 1, imgs: [cbbq]},
-    { x: 2, y: 2, imgs: [airasushi]},
-    { x: 1, y: 2, imgs: [leyuan]},
-    { x: 0, y: 2, imgs: [thefry] },
-    { x: 0, y: 1, imgs: [pho]},
+    { background: '#e9e8fe',imgs: [ChineseDishes] },
+    { background: '#579BB1',imgs: [hotpot] },
+    { background: '#FD8A8A',imgs: [thefry] },
+    { background: '#579BB1',imgs: [pho] },
+    { background: '#F1F7B5',imgs: [hotpot] },
+    { background: '#144272',imgs: [jbbq] },
+    { background: '#0A2647',imgs: [cbbq]},
+    { background: '#579BB1',imgs: [leyuan] },
+    { background: '#FFEBB7',imgs: [airasushi] },
+    { background: '#FF6E31', imgs: [xiaolongkan] },
+    { background: '#EB455F',imgs: [bbqChicken] },
   ]
- const  buttons = [
+//  const  buttons = [
+//   {
+//     x: 2, y: 2,
+//     background: 'rgba(0,0,0,0)',
+//     imgs: [{
+//       src: './startBtn.png',
+//       width: '80%',
+//       height: '60%',
+//       top: '20%',
+//     }],
+//   },
+//   ]
+const buttons= [
+  { radius: '40%', background: '#0A2647' },
+  { radius: '35%', background: '#144272' },
   {
-    x: 1, y: 1,
-    background: 'rgba(0,0,0,0)',
+    radius: '25%', background: '#0A2647',
+    pointer: true,
     imgs: [{
-      src: './startBtn.png',
-      width: '80%',
-      height: '60%',
-      top: '20%',
+      src: './wheelBtn.png',
+      width: '110%',
+      height: '160%',
+      top: '-206%',
     }],
   },
-  ]
+]
   
   const myLucky = useRef()
   return <div className={styles.container}>
@@ -156,10 +207,12 @@ export default function LuckyGridScreen() {
       className={styles.mainBg}
       style={{}}
     />
-    <LuckyGrid
+    <LuckyWheel
       ref={myLucky}
-      width="600px"
-      height="600px"
+      cols={5}
+      rows={5}
+      width={orientation.width > 768 ? '600px' : orientation.width <= 768 && orientation.width > 481 ? '500px' : '400px'}
+      height={orientation.width > 768 ? '600px' : orientation.width <= 768 && orientation.width > 481 ? '500px' : '400px'}
       blocks={blocks}
       prizes={prizes}
       buttons={buttons}
@@ -190,7 +243,7 @@ export default function LuckyGridScreen() {
           <IoCloseSharp className={styles.closeIcon} fontSize={45} onClick={() => setIsOpen(false)}/>
           <Lottie 
               animationData={firework} 
-              style={{height:200}}
+              style={ orientation.width > 768 ? {  height: 200 } : orientation.width <= 768 && orientation.width > 481 ? {  height: 180 } : {  height: 120 }}
           /> 
         <h1 className={styles.resultTitle}>Wow! 就决定是你了 <span>{result}</span> </h1>
         <div className={styles.logo}>
@@ -198,7 +251,7 @@ export default function LuckyGridScreen() {
             src={resultImg}
             alt='main'
             className={styles.mainBg}
-            style={{width: 200, height: 200}}
+            style={orientation.width > 768 ? { width: 200, height: 200 } : orientation.width <= 768 && orientation.width > 481 ? { width: 160, height: 160 } : { width: 120, height: 120 }}
           />
         </div>
     </div>        
