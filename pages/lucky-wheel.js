@@ -197,7 +197,7 @@ const buttons= [
     }],
   },
 ]
-  
+ 
   const myLucky = useRef()
   return <div className={styles.container}>
     <h1 className={styles.title}>今天吃点啥好呢？</h1>
@@ -222,7 +222,7 @@ const buttons= [
         myLucky.current.play()
         play()
         setTimeout(() => {
-          const index = Math.random() * 6 >> 0
+          const index = Math.random() * 10 >> 0
           myLucky.current.stop(index)
         }, 2500)
       }}
@@ -243,7 +243,7 @@ const buttons= [
           <IoCloseSharp className={styles.closeIcon} fontSize={45} onClick={() => setIsOpen(false)}/>
           <Lottie 
               animationData={firework} 
-              style={ orientation.width > 768 ? {  height: 200 } : orientation.width <= 768 && orientation.width > 481 ? {  height: 180 } : {  height: 120 }}
+              style={ orientation?.width < 481 ? {  height: 120 } : orientation?.width <= 768 && orientation.width > 481 ? {  height: 180 } : {  height: 200 }}
           /> 
         <h1 className={styles.resultTitle}>Wow! 就决定是你了 <span>{result}</span> </h1>
         <div className={styles.logo}>
@@ -251,7 +251,7 @@ const buttons= [
             src={resultImg}
             alt='main'
             className={styles.mainBg}
-            style={orientation.width > 768 ? { width: 200, height: 200 } : orientation.width <= 768 && orientation.width > 481 ? { width: 160, height: 160 } : { width: 120, height: 120 }}
+            style={orientation?.width < 481 ? { width: 120, height: 120 } : orientation?.width <= 768 && orientation?.width > 481 ? { width: 160, height: 160 } : { width:200, height: 200 }}
           />
         </div>
     </div>        

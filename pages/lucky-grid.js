@@ -163,7 +163,7 @@ export default function LuckyGridScreen() {
       blocks={blocks}
       prizes={prizes}
       buttons={buttons}
-      defaultStyle={{ borderRadius: '1220px', shadow: '0 2px 10px #F8F4EA'}}
+      defaultStyle={{ borderRadius: '120px', shadow: '0 2px 10px #F8F4EA'}}
       activeStyle={{ background: '#F8F4EA' ,shadow: '0 2px 10px #F8F4EA'}}
       onStart={() => { // 点击抽奖按钮会触发star回调
         myLucky.current.play()
