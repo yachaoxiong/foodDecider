@@ -24,6 +24,9 @@
   padding: 20px;
   border-radius: 5px;
 }
+.resultTitle{
+  color:black;
+}
 .resultTitle span{
   background: black;
   color: white;
