@@ -159,17 +159,17 @@ export default function LuckyGridScreen() {
     ]
   }
   const prizes =[
-    { background: '#e9e8fe',imgs: [ChineseDishes] },
-    { background: '#579BB1',imgs: [hotpot] },
-    { background: '#FD8A8A',imgs: [thefry] },
-    { background: '#579BB1',imgs: [pho] },
-    { background: '#F1F7B5',imgs: [hotpot] },
-    { background: '#144272',imgs: [jbbq] },
-    { background: '#0A2647',imgs: [cbbq]},
-    { background: '#579BB1',imgs: [leyuan] },
-    { background: '#FFEBB7',imgs: [airasushi] },
-    { background: '#FF6E31', imgs: [xiaolongkan] },
-    { background: '#EB455F',imgs: [bbqChicken] },
+    {  range:10,background: '#e9e8fe',imgs: [ChineseDishes] },
+    {  range:10,background: '#579BB1',imgs: [hotpot] },
+    {  range:10,background: '#FD8A8A',imgs: [thefry] },
+    {  range:10,background: '#579BB1',imgs: [pho] },
+    {  range:10,background: '#F1F7B5',imgs: [hotpot] },
+    {  range:10,background: '#144272',imgs: [jbbq] },
+    {  range:10,background: '#0A2647',imgs: [cbbq]},
+    {  range:10,background: '#579BB1',imgs: [leyuan] },
+    {  range:10,background: '#FFEBB7',imgs: [airasushi] },
+    {  range:10,background: '#FF6E31', imgs: [xiaolongkan] },
+    {  range:10,background: '#EB455F',imgs: [bbqChicken] },
   ]
 //  const  buttons = [
 //   {
@@ -222,8 +222,7 @@ const buttons= [
         myLucky.current.play()
         play()
         setTimeout(() => {
-          const index = Math.random() * 10 >> 0
-          myLucky.current.stop(index)
+          myLucky.current.stop()
         }, 2500)
       }}
       onEnd={prize => {
